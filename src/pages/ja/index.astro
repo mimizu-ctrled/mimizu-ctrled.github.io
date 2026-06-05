@@ -1,0 +1,385 @@
+---
+const title = "みみず";
+
+const songs = [
+  {
+    name: "百八円の恋",
+    artist: "クリープハイプ",
+    url: "https://www.youtube.com/watch?v=D21fZcFOqfo",
+  },
+
+  {
+    name: "Electric Loneliness",
+    artist: "171",
+    url: "https://www.youtube.com/watch?v=pGYPdOTcezE",
+  },
+
+  {
+    name: "Passengeers",
+    artist: "171",
+    url: "https://www.youtube.com/watch?v=F9v4yDUdSvE",
+  },
+];
+
+const randomSong =
+  songs[Math.floor(Math.random() * songs.length)];
+
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="/ja" class="logo_link">みみず's Web Site</a>
+      </div>
+      <nav>
+        <a href="/ja/about">About</a>
+        <a href="/ja/blog">Blog</a>
+        <a href="/ja/links">Links</a>
+        <a href="/en">English</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <img
+            src="/images/mimizu.png"
+            class="hero-image"
+          />
+
+          <div class="socials">
+            <a href="https://x.com/mimizu_pa">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+          
+            <a href="https://instagram.com/mmz_isallyouneed">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          
+            <a href="https://github.com/mimizu-ctrled">
+              <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="https://qiita.com/mimizu-ctrled">
+              <i class="fa-brands fa-q"></i>
+            </a>
+          </div>
+        </div>
+        <div class="hero-text">
+          <h1>みみず</h1>
+
+          <p class="description">
+            言語・視覚・触覚などのいろんなモーダルを1つの表現空間にまとめるために勉強中。<br />
+            詳しくは<a href="/ja/about" class="link">About</a>へ
+          </p>  
+        </div>
+      </section>
+
+      <section class="Songs">
+        <h2>今日の一曲(布教)</h2>
+        <p>
+          <a class="link"
+            href={randomSong.url}
+            target="_blank"
+          >
+            {randomSong.name}
+            — {randomSong.artist}
+          </a>
+        </p>
+        <p>※ 新しいタブでYouTubeが開きます</p>
+      </section>
+
+      <section class="History">
+        <h2>このサイトの歩み</h2>
+        <h3>2026年6月^日</h3>
+        <p>モチベ維持/ポートフォリオ/暇つぶし としてこのサイトを開設(作りかけ)</p>
+      </section>
+
+      <section class="Count">
+        <p>あなたは</p>
+        <img src="https://count.getloli.com/@:こんにちは数"/>
+        <p>人目の訪問者です</p>
+      </section>
+
+    </main>
+  </body>
+</html>
+
+<style>
+  :root {
+    --text: #e8e8e8;
+    --sub: #c5c9d0;
+    --line: #2a2a2a;
+    --accent: #c0ffee;
+  }
+
+  body {
+    margin: 0;
+    background:
+      linear-gradient(
+        to bottom right,
+        #000000,
+        #000000,
+        #242332,
+        #2a2a2a
+      );
+    color: var(--text);
+
+    font-family:  
+      Inter,
+      "Noto Sans JP",
+      sans-serif;
+
+    line-height: 1.7;
+  }
+
+  header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 48px;
+
+    background: rgba(17, 17, 17, 0.7);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid var(--line);
+
+    z-index: 1000;
+
+    box-sizing: border-box;
+    
+    text-decoration: none;
+}
+
+  .logo {
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+  }
+
+  .logo::first-letter {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  nav {
+    display: flex;
+    gap: 28px;
+  }
+
+  a {
+    color: var(--sub);
+    font-size: 1.2rem;
+
+    transition:
+      color 0.25s,
+      transform 0.25s;
+  }
+
+  a:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  main {
+    max-width: 1100px;
+    
+    margin: 0 auto;
+    
+    padding:
+      140px 48px 80px;
+}
+
+
+  h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+
+    line-height: 1.05;
+
+    margin:
+      0
+      0
+      80px;
+  }
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 24px;
+  }
+
+  .description {
+    max-width: 720px;
+
+    color: var(--sub);
+
+    font-size: 1.05rem;
+  }
+  
+
+  .link {
+    text-decoration: underline;
+    font-style: italic;
+  }
+
+  .logo_link {
+    text-decoration: underline;
+  }
+
+  .History {
+    margin-top: 100px;
+
+    padding: 0px 40px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    border: 1px solid var(--line);
+
+    border-radius: 24px;
+
+    backdrop-filter: blur(6px);
+  }
+
+  .History h3 {
+    color: var(--sub);
+
+    font-weight: normal;
+
+    margin-bottom: 12px;
+  }
+
+  .Songs {
+    margin-top: 100px;
+
+    padding: 0px 40px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    border: 1px solid var(--line);
+
+    border-radius: 24px;
+
+    backdrop-filter: blur(6px);
+  }
+
+  .Songs a {
+    margin: 0;
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+  }
+
+  .Count {
+    margin-top: 100px;
+
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    border: 1px solid var(--line);
+
+    border-radius: 24px;
+
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    font-size: 1.2rem;
+  }
+
+  .hero {
+    display: flex;
+
+    align-items: center;
+
+    gap: 48px;
+  }
+
+  .hero h1::first-letter {
+    color: var(--accent);
+    font-size: 3.5em;
+    font-weight: bold;
+  }
+
+  .hero-image {
+    width: 300px;
+    height: 300px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--line);
+  }
+
+  .hero-text {
+    max-width: 700px;
+  }
+
+
+  .hero-left {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 20px;
+  }
+
+  .socials {
+  display: flex;
+
+  gap: 20px;
+}
+
+.socials a {
+    font-size: 1.8rem;
+
+    color: var(--sub);
+
+    transition:
+      color 0.25s,
+      transform 0.25s;
+  }
+
+.socials a:nth-child(1):hover {
+    color: #1da1f2;
+  }
+
+.socials a:nth-child(2):hover {
+    color: #fe277d;
+  }
+
+.socials a:nth-child(3):hover {
+    color: #333;
+  }
+
+.socials a:nth-child(4):hover {
+    color: #55c500;
+  }
+
+header a {
+    text-decoration: none;
+  }
+</style>

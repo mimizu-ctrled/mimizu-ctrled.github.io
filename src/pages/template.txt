@@ -1,7 +1,5 @@
 ---
-const title = "Mimizu";
-
-import { posts } from "../../../data/post";
+const title = "みみず";
 ---
 
 <html lang="ja">
@@ -34,14 +32,7 @@ import { posts } from "../../../data/post";
     </header>
 
     <main>
-      {
-        posts.map((post) => (
-          <a href={post.url}>
-            <h2>{post.title}</h2>
-            <p>{post.description}</p>
-          </a>
-        ))
-      }
+      <h1>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br></h1>
     </main>
   </body>
 </html>

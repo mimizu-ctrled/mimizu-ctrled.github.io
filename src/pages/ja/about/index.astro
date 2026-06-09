@@ -1,5 +1,5 @@
 ---
-const title = "Mimizu";
+const title = "みみず";
 ---
 
 <html lang="ja">
@@ -7,11 +7,238 @@ const title = "Mimizu";
     <meta charset="UTF-8" />
     <title>{title}</title>
 
-        <h1>みみず</h1>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      rel="icon"
+      href="/favicon.svg"
+      type="image/svg+xml"
+    />
   </head>
 
   <body>
-    <a href="/ja"><h1>日本語ホーム</h1></a>
-    <h1>Coming Soon...</h1>
+    <header>
+      <div class="logo">
+        <a href="/ja" class="logo_link">みみず の Web Site</a>
+      </div>
+      <nav>
+        <a href="/ja">Home</a>
+        <a href="/ja/about">About</a>
+        <a href="/ja/study">Study</a>
+        <a href="/ja/blog">Blog</a>
+        <a href="/ja/links">Links</a>
+        <a href="/en">English</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="about">
+        <h1>About(Me)</h1>
+        <p  class="description">
+          こんにちは! みみずと申します<br />
+          日々精一杯生きてます
+        </p>
+        <h2>プロフィール</h2>
+        <p class="description">
+          - 名前: みみず<br />
+          - 職業: 学生<br />
+          - 興味: ネイティブマルチモーダルAI<br />
+          - 趣味: 音楽(聴く), 音楽(弾く(ギターとかベース)), インターネット
+        </p>
+
+        <h2>自語り</h2>
+        <p class="description">
+          自分が小6の代からちょうど始まったIT教育(?)の一環で、<br />
+          Scratchをやる授業があり、プログラミングとのファーストコンタクト。<br /><br />
+          その時はたいして興味を持てずに、「これがプログラミングかー。へー...」って感じで、<br />
+          ねこを爆速で回転させてベイブレードとか言ってました。<br /><br />
+          時は流れ、中学校の授業で円周率を求める手法たちについてのレポートを書く機会があり、<br />
+          自分はビュフォンの針等のモンテカルロ法の存在をいくつかレポートにまとめました。<br />
+          その際、それぞれの手法の試行回数による精度の変化を、どうせなら一緒に書いておくかと<br />
+          細かく折ったシャー芯を大学ノートにぶちまけてひたすら数える奇行をリビングで行う。<br /><br/>
+          どう考えても無理があるでしょう。十分な精度を出すには時間と集中力が足りませんでした。<br />
+          そこで「そういえばScratchなんてものがあったな」<br />
+          と、奇跡的にプログラミングの存在を思い出す。<br /><br />
+          慣れないながらもプログラムを組み、試行回数と精度とのグラフを書き、無事レポート提出。<br />
+          その後「どうせならなんかキーボードカタカタして書くプログラミングもしてみたい」<br />
+          というモチベと、なんか初心者向けらしいという情報を聞きつけてPythonの勉強開始。<br /><br />
+          その後なんやかんやあってデータサイエンス→AI→LLM→MMという変遷を辿り現在。<br /><br />
+          その他は、わりと普通に生きてきました。<br /><br />
+          先輩に誘われて高校から入った軽音部には、初期投資が少ないという理由でドラムで入部。<br />
+          しかしその後ベースを始め、持ち前ののめり込み力でいつの間にかベースオタクを自負。<br />
+          その後ギターも初めた結果、部員には三股とか言われ、<br />
+          それを耳にした1年生が俺のことをガチで三股してるクズ男だと勘違いする始末。<br />
+          三股できるくらいモテてえよ
+        </p>
+      </section>
+      <section class="about">
+        <h1>About(This Site)</h1>
+        <p class="description">
+          このサイトは、主に勉強進捗の定期的な報告とそのポートリフォ用として作りました。<br />
+          勉強してること、勉強したいこと、読んだ本や得た知見等を時々報告していきます。<br />
+          なお、受験勉強的なものに関しては報告はしません。<br /><br />
+          また、このサイトはgithub pagesで公開されています。<br />
+          お金がないので、めんどいことなしに無料で公開できるところで一番いいと感じたのです。<br />
+          そして相性のいいワークフレームとしてAstroが出てきたのでそれで作ってます。<br /><br />
+          ちなみに、最初はこのサイトを推薦受験で使えたらなと少し思っていたのですが、<br />
+          締め切りまでに完成するようにスケジュールを組むと<br />
+          一般受験の勉強が終わらないことに気づいたので推薦受験自体諦めました。<br /><br />
+    </main>
   </body>
 </html>
+
+<style>
+  :root {
+    --text: #e8e8e8;
+    --sub: #c5c9d0;
+    --line: #2a2a2a;
+    --accent: #c0ffee;
+  }
+
+  body {
+    margin: 0;
+    /* background */
+    color: var(--text);
+
+    line-height: 1.7;
+  }
+
+  body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom right,
+    #000000,
+    #000000,
+    #212034,
+    #212034
+  );
+
+  z-index: -1;
+}
+
+  header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 48px;
+
+    background: rgba(17, 17, 17, 0.7);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid var(--line);
+
+    z-index: 1000;
+
+    box-sizing: border-box;
+    
+    text-decoration: none;
+}
+
+  .logo {
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+  }
+
+  .logo::first-letter {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  nav {
+    display: flex;
+    gap: 28px;
+  }
+
+  a {
+    color: var(--sub);
+    font-size: 1.2rem;
+
+    transition:
+      color 0.25s,
+      transform 0.25s;
+  }
+
+  a:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  main {
+    max-width: 1100px;
+    
+    margin: 0 auto;
+    
+    padding:
+      140px 48px 80px;
+}
+
+
+  h1 {
+    font-size: 3rem;
+
+    line-height: 1.05;
+
+    margin:
+      50px
+      0
+      30px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+
+  .description {
+    max-width: 720px;
+
+    margin-bottom: 25px;
+
+    color: var(--sub);
+
+    font-size: 1.05rem;
+  }
+  
+
+  .link {
+    text-decoration: underline;
+    font-style: italic;
+  }
+
+  .logo_link {
+    text-decoration: underline;
+  }
+
+  header a {
+    text-decoration: none;
+  }
+
+.about {
+    margin-top: 40px;
+    
+    margin-bottom: 40px;
+
+    padding: 0px 40px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    border: 1px solid var(--line);
+
+    border-radius: 24px;
+
+    backdrop-filter: blur(6px);
+  }
+</style>

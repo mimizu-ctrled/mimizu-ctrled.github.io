@@ -1,7 +1,5 @@
 ---
-const title = "Mimizu";
-
-import { posts } from "../../../data/post";
+const title = "みみず";
 ---
 
 <html lang="ja">
@@ -34,14 +32,10 @@ import { posts } from "../../../data/post";
     </header>
 
     <main>
-      {
-        posts.map((post) => (
-          <a href={post.url}>
-            <h2>{post.title}</h2>
-            <p>{post.description}</p>
-          </a>
-        ))
-      }
+      <section class="section">
+        <h1>
+          yeah
+        </h1>
     </main>
   </body>
 </html>
@@ -146,18 +140,18 @@ import { posts } from "../../../data/post";
 
 
   h1 {
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: 3rem;
 
     line-height: 1.05;
 
     margin:
+      50px
       0
-      0
-      80px;
+      30px;
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 24px;
   }
 
@@ -180,5 +174,21 @@ import { posts } from "../../../data/post";
   }
   header a {
     text-decoration: none;
+  }
+
+  .section {
+    margin-top: 40px;
+    
+    margin-bottom: 40px;
+
+    padding: 0px 40px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    border: 1px solid var(--line);
+
+    border-radius: 24px;
+
+    backdrop-filter: blur(6px);
   }
 </style>

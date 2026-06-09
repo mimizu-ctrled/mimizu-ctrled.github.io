@@ -42,12 +42,38 @@ const songs = [
     name: "ABCDC",
     artist: "クリープハイプ",
     url: "https://www.youtube.com/watch?v=Gadk2JPAAi0",
+  },
+
+  {
+    name: "Overflow(Rev2)",
+    artist: "Suspended4th",
+    url: "https://www.youtube.com/watch?v=Gadk2JPAAi0",
+  },
+
+  {
+    name: "GIVE&TAKE",
+    artist: "夜の本気ダンス",
+    url: "https://www.youtube.com/watch?v=Gadk2JPAAi0",
+  },
+
+  {
+    name: "WHERE?",
+    artist: "夜の本気ダンス",
+    url: "https://www.youtube.com/watch?v=Gadk2JPAAi0",
+  },
+
+  {
+    name: "狂乱Hey Kids!!",
+    artist: "The Oral Cigarettes",
+    url: "https://www.youtube.com/watch?v=Gadk2JPAAi0",
   }
+
 ];
 
 const randomSong =
   songs[Math.floor(Math.random() * songs.length)];
 
+import { posts } from "../../data/post";
 ---
 
 <html lang="ja">
@@ -69,10 +95,12 @@ const randomSong =
   <body>
     <header>
       <div class="logo">
-        <a href="/ja" class="logo_link">みみず's Web Site</a>
+        <a href="/ja" class="logo_link">みみず の Web Site</a>
       </div>
       <nav>
+        <a href="/ja">Home</a>
         <a href="/ja/about">About</a>
+        <a href="/ja/study">Study</a>
         <a href="/ja/blog">Blog</a>
         <a href="/ja/links">Links</a>
         <a href="/en">English</a>
@@ -110,24 +138,35 @@ const randomSong =
 
           <p class="description">
             言語・視覚・触覚などのいろんなモーダルを1つの表現空間にまとめるために勉強中。<br />
-            詳しくは<a href="/ja/about" class="link">About</a>へ
+            詳しくは<a href="/ja/study" class="link">Study</a>へ
           </p>  
         </div>
       </section>
 
       <section class="Songs">
-        <h2>今日の一曲(布教)</h2>
-        <p>
-          <a class="link"
+        <h2>みみずせれくとの一曲(布教)</h2>
+        <a class="link"
             href={randomSong.url}
             target="_blank"
           >
             {randomSong.name}
             — {randomSong.artist}
           </a>
-        </p>
         <p>※ 新しいタブでYouTubeが開きます</p>
       </section>
+
+      <section class="Blogs">
+        <h2>最近のブログたち</h2>
+        {
+          posts.map((post) => (
+            <a href={post.url}>
+              <h3>{post.title}</h3>
+              <p>{post.description}</p>
+            </a>
+          ))
+        }
+        </section>
+
 
       <section class="History">
         <h2>このサイトの歩み</h2>
@@ -138,7 +177,7 @@ const randomSong =
       <section class="Count">
         <p>あなたは</p>
         <img src="https://count.getloli.com/@:こんにちは数"/>
-        <p>人目の訪問者です</p>
+        <p>人目の訪問者ですぜ</p>
       </section>
 
     </main>
@@ -155,22 +194,28 @@ const randomSong =
 
   body {
     margin: 0;
-    background:
-      linear-gradient(
-        to bottom right,
-        #000000,
-        #000000,
-        #242332,
-        #2a2a2a
-      );
+    
     color: var(--text);
 
-    font-family:  
-      Inter,
-      "Noto Sans JP",
-      sans-serif;
-
     line-height: 1.7;
+    z-index: -1;
+  }
+
+  body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom right,
+    #000000,
+    #000000,
+    #212034,
+    #212034
+  );
+
+  z-index: -1;
   }
 
   header {
@@ -198,7 +243,7 @@ const randomSong =
     box-sizing: border-box;
     
     text-decoration: none;
-}
+  }
 
   .logo {
     font-size: 1.1rem;
@@ -236,8 +281,7 @@ const randomSong =
     
     padding:
       140px 48px 80px;
-}
-
+  }
 
   h1 {
     font-size: clamp(3rem, 8vw, 6rem);
@@ -252,6 +296,11 @@ const randomSong =
 
   h2 {
     font-size: 3rem;
+    margin-bottom: 24px;
+  }
+
+  h3 {
+    font-size: 2rem;
     margin-bottom: 24px;
   }
 
@@ -377,38 +426,65 @@ const randomSong =
   }
 
   .socials {
-  display: flex;
+    display: flex;
 
-  gap: 20px;
-}
+    gap: 20px;
+  }
 
-.socials a {
-    font-size: 1.8rem;
+  .socials a {
+      font-size: 1.8rem;
 
+      color: var(--sub);
+
+      transition:
+        color 0.25s,
+        transform 0.25s;
+  }
+
+  .socials a:nth-child(1):hover {
+      color: #1da1f2;
+  }
+
+  .socials a:nth-child(2):hover {
+      color: #fe277d;
+  }
+
+  .socials a:nth-child(3):hover {
+      color: #333;
+  }
+
+  .socials a:nth-child(4):hover {
+      color: #55c500;
+  }
+
+  header a {
+      text-decoration: none;
+  }
+
+  .Blogs {
+    margin-top: 100px;
+
+    padding: 0px 40px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    border: 1px solid var(--line);
+
+    border-radius: 24px;
+
+    backdrop-filter: blur(6px);
+  }
+
+  .Blogs h3 {
     color: var(--sub);
 
-    transition:
-      color 0.25s,
-      transform 0.25s;
+    font-weight: normal;
+
+    margin-bottom: 12px;
   }
 
-.socials a:nth-child(1):hover {
-    color: #1da1f2;
-  }
-
-.socials a:nth-child(2):hover {
-    color: #fe277d;
-  }
-
-.socials a:nth-child(3):hover {
-    color: #333;
-  }
-
-.socials a:nth-child(4):hover {
-    color: #55c500;
-  }
-
-header a {
-    text-decoration: none;
+  .Blogs:hover h3{
+    color: var(--accent)
+    transition: color(0.25s)
   }
 </style>
